@@ -142,10 +142,19 @@ body {
         font-weight: 500;
         min-height: 16px; }
       .section-card .card .card__holder_expires .card__holder {
-        padding: 20px 25px; }
+        padding: 20px 5px 20px 25px; }
       .section-card .card .card__holder_expires .card__expires {
-        padding: 20px 25px;
-        min-width: 80px; }
+        padding: 20px 25px 20px 5px;
+        min-width: 112px; }
+        .section-card .card .card__holder_expires .card__expires h4,
+        .section-card .card .card__holder_expires .card__expires span {
+          display: inline-block; }
+        .section-card .card .card__holder_expires .card__expires span {
+          color: #fff;
+          font-family: Arial;
+          text-transform: uppercase;
+          font-weight: 500;
+          min-height: 16px; }
   .section-card .card_form {
     width: 100%;
     background: #fff;

@@ -10,9 +10,15 @@ function handleValueChangeName() {
     x.innerHTML = y;
 }
 
-function handleValueChangeCVV() {
-    var y = document.getElementById('card-cvv').value;
-    var x = document.getElementById('text-card-cvv');
+function handleValueChangeMonth() {
+    var y = document.getElementById('card-month').value;
+    var x = document.getElementById('text-card-month');
+    x.innerHTML = y.replace(/\D+/g,"").trim();
+}
+
+function handleValueChangeYear() {
+    var y = document.getElementById('card-year').value;
+    var x = document.getElementById('text-card-year');
     x.innerHTML = y.replace(/\D+/g,"").trim();
 }
 

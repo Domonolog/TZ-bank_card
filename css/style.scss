@@ -186,12 +186,25 @@ body {
       }
 
       .card__holder {
-        padding: 20px 25px;
+        padding: 20px 5px 20px 25px;
       }
 
       .card__expires {
-        padding: 20px 25px;
-        min-width: 80px;
+        padding: 20px 25px 20px 5px;
+        min-width: 112px;
+
+        h4,
+        span {
+          display: inline-block;
+        }
+
+        span {
+          color: #fff;
+          font-family: Arial;
+          text-transform: uppercase;
+          font-weight: 500;
+          min-height: 16px;
+        }
       }
     }
   }
