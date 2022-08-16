@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Title</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+</header>
+<main>
+    <section class="section-card">
+        <div class="inner">
+            <div class="card">
+                <img src="images/card-background-img.jpg" class="object-fit object-fit-cover" alt="">
+                <div class="card__logos">
+                    <div class="left-logo">
+                        <img src="images/card-code.png" alt="">
+                    </div>
+                    <div class="right-logo">
+                        <img src="images/logo-visa-img.png" alt="">
+                    </div>
+                </div>
+                <div class="card__number-card">
+                    <span id="text-card-number">#### #### #### ####</span>
+                </div>
+                <div class="card__holder_expires">
+                    <div class="card__holder">
+                        <h3>Card Holder</h3>
+                        <h4 id="text-card-name">AD SOYAD</h4>
+                    </div>
+                    <div class="card__expires">
+                        <h3>CVV</h3>
+                        <h4 id="text-card-cvv">###</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="card_form">
+                <form method="post">
+                    <div class="card__card-number">
+                        <label for="card-number">Card Number</label>
+                        <input id="card-number" minlength="19" maxlength="19" required="required" autocomplete="off" type="text" name="card_number" oninput="handleValueChangeNumber()">
+                    </div>
+                    <div class="card__card-name">
+                        <label for="card-name">Card Name</label>
+                        <input id="card-name" minlength="4" maxlength="14" required="required" autocomplete="off" type="text" name="card_name" oninput="handleValueChangeName()">
+                    </div>
+                    <div class="card__date_cvv">
+                        <div class="card__date">
+                            <label>Expiration Date</label>
+                            <div class="card_date__month_year">
+                                <select name="month" autocomplete="off">
+                                    <option selected hidden>Month</option>
+                                    <option value="january">01</option>
+                                    <option value="february">02</option>
+                                    <option value="march">03</option>
+                                    <option value="april">04</option>
+                                    <option value="may">05</option>
+                                    <option value="june">06</option>
+                                    <option value="july">07</option>
+                                    <option value="august">08</option>
+                                    <option value="september">09</option>
+                                    <option value="october">10</option>
+                                    <option value="november">11</option>
+                                    <option value="december">12</option>
+                                </select>
+                                <select name="year" autocomplete="off">
+                                    <option selected hidden>Year</option>
+                                    <option value="2022">22</option>
+                                    <option value="2023">23</option>
+                                    <option value="2024">24</option>
+                                    <option value="2025">25</option>
+                                    <option value="2026">26</option>
+                                    <option value="2027">27</option>
+                                    <option value="2028">28</option>
+                                    <option value="2029">29</option>
+                                    <option value="2030">30</option>
+                                    <option value="2031">31</option>
+                                    <option value="2032">32</option>
+                                    <option value="2033">33</option>
+                                    <option value="2034">34</option>
+                                    <option value="2035">35</option>
+                                    <option value="2036">36</option>
+                                    <option value="2037">37</option>
+                                    <option value="2038">38</option>
+                                    <option value="2039">39</option>
+                                    <option value="2040">40</option>
+                                    <option value="2041">41</option>
+                                    <option value="2042">42</option>
+                                    <option value="2043">43</option>
+                                    <option value="2044">44</option>
+                                    <option value="2045">45</option>
+                                    <option value="2046">46</option>
+                                    <option value="2047">47</option>
+                                    <option value="2048">48</option>
+                                    <option value="2049">49</option>
+                                    <option value="2050">50</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card__cvv">
+                            <label for="card-cvv">CVV</label>
+                            <input id="card-cvv" minlength="3" maxlength="3" required="required" autocomplete="off" type="text" name="card_cvv" oninput="handleValueChangeCVV()">
+                        </div>
+                    </div>
+                    <div class="card_form__button">
+                        <input class="button" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
