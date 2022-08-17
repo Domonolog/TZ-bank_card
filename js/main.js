@@ -100,7 +100,7 @@ ccNumberInput.addEventListener( 'input', ccNumberInputInputHandler );
 ccExpiryInput.addEventListener( 'keydown', ccExpiryInputKeyDownHandler );
 ccExpiryInput.addEventListener( 'input', ccExpiryInputInputHandler );
 
-// Month++
+// Month and Year selects
 const fallbackPicker = document.querySelector('.card__date');
 const yearSelect = document.querySelector('#card-year');
 const monthSelect = document.querySelector('#card-month');
@@ -124,16 +124,20 @@ function populateYears() {
     const year = date.getFullYear();
 
     for (let i = 0; i <= 30; i++) {
-        const option = document.createElement('option');
-        option.textContent = year + i;
-        yearSelect.appendChild(option);
+        const sel = document.getElementById("card-year");
+        const opt = document.createElement("option");
+        opt.value = year + i;
+        opt.text = year + i;
+        sel.add(opt, null);
     }
 }
 
 function populateMonth() {
     for (let i = 1; i <= 12; i++) {
-        const option = document.createElement('option');
-        option.textContent = i;
-        monthSelect.appendChild(option);
+        const sel = document.getElementById("card-month");
+        const opt = document.createElement("option");
+        opt.value = i;
+        opt.text = i;
+        sel.add(opt, null);
     }
 }

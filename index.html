@@ -42,7 +42,7 @@
                 <form method="post">
                     <div class="card__card-number">
                         <label for="card-number">Card Number</label>
-                        <input id="card-number" minlength="19" maxlength="19" required="required" autocomplete="off" type="text" name="card_number" oninput="handleValueChangeNumber()">
+                        <input id="card-number" minlength="19" maxlength="19" required="required" autocomplete="off" type="tel" name="card_number" oninput="handleValueChangeNumber()">
                     </div>
                     <div class="card__card-name">
                         <label for="card-name">Card Name</label>
@@ -52,10 +52,10 @@
                         <div class="card__date">
                             <label>Expiration Date</label>
                             <div class="card_date__month_year">
-                                <select name="month" id="card-month" autocomplete="off" oninput="handleValueChangeMonth()">
+                                <select name="select-month" id="card-month" autocomplete="off" oninput="handleValueChangeMonth()">
                                     <option selected hidden>Month</option>
                                 </select>
-                                <select name="year" id="card-year" autocomplete="off" oninput="handleValueChangeYear()">
+                                <select name="select-year" id="card-year" autocomplete="off" oninput="handleValueChangeYear()">
                                     <option selected hidden>Year</option>
                                 </select>
                             </div>
