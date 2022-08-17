@@ -1,3 +1,4 @@
+// Field transfer
 function handleValueChangeNumber() {
     var y = document.getElementById('card-number').value;
     var x = document.getElementById('text-card-number');
@@ -13,15 +14,16 @@ function handleValueChangeName() {
 function handleValueChangeMonth() {
     var y = document.getElementById('card-month').value;
     var x = document.getElementById('text-card-month');
-    x.innerHTML = y.replace(/\D+/g,"").trim();
+    x.innerHTML = y.replace(/\D+/g,"").replace(/^(\d)$/, "0$1");
 }
 
 function handleValueChangeYear() {
     var y = document.getElementById('card-year').value;
     var x = document.getElementById('text-card-year');
-    x.innerHTML = y.replace(/\D+/g,"").trim();
+    x.innerHTML = y.replace(/\D+/g,"").replace(/^.{2}/, '');
 }
 
+// Field limit
 let ccNumberInput = document.querySelector( '#card-number' ),
     ccNumberPattern = /^\d{0,16}$/g,
     ccNumberSeparator = "",
@@ -97,3 +99,41 @@ ccNumberInput.addEventListener( 'input', ccNumberInputInputHandler );
 
 ccExpiryInput.addEventListener( 'keydown', ccExpiryInputKeyDownHandler );
 ccExpiryInput.addEventListener( 'input', ccExpiryInputInputHandler );
+
+// Month++
+const fallbackPicker = document.querySelector('.card__date');
+const yearSelect = document.querySelector('#card-year');
+const monthSelect = document.querySelector('#card-month');
+fallbackPicker.style.display = 'none';
+
+const changeinputYear = document.createElement('input');
+const changeinputMonth = document.createElement('input');
+
+if (changeinputYear.type === 'text') {
+    fallbackPicker.style.display = 'block';
+    populateYears();
+}
+
+if (changeinputMonth.type === 'text') {
+    fallbackPicker.style.display = 'block';
+    populateMonth();
+}
+
+function populateYears() {
+    const date = new Date();
+    const year = date.getFullYear();
+
+    for (let i = 0; i <= 30; i++) {
+        const option = document.createElement('option');
+        option.textContent = year + i;
+        yearSelect.appendChild(option);
+    }
+}
+
+function populateMonth() {
+    for (let i = 1; i <= 12; i++) {
+        const option = document.createElement('option');
+        option.textContent = i;
+        monthSelect.appendChild(option);
+    }
+}
