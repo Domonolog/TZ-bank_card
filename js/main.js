@@ -102,12 +102,13 @@ ccExpiryInput.addEventListener( 'input', ccExpiryInputInputHandler );
 
 // Month and Year selects
 const fallbackPicker = document.querySelector('.card__date');
-const yearSelect = document.querySelector('#card-year');
-const monthSelect = document.querySelector('#card-month');
+const yearSelect = document.getElementById('card-year');
 fallbackPicker.style.display = 'none';
 
 const changeinputYear = document.createElement('input');
 const changeinputMonth = document.createElement('input');
+
+yearSelect.addEventListener("change", populateMonth);
 
 if (changeinputYear.type === 'text') {
     fallbackPicker.style.display = 'block';
@@ -122,22 +123,47 @@ if (changeinputMonth.type === 'text') {
 function populateYears() {
     const date = new Date();
     const year = date.getFullYear();
+    const select = document.getElementById("card-year");
 
     for (let i = 0; i <= 30; i++) {
-        const sel = document.getElementById("card-year");
-        const opt = document.createElement("option");
-        opt.value = year + i;
-        opt.text = year + i;
-        sel.add(opt, null);
+        createSelectOptions(select, year + i);
     }
 }
 
+function createSelectOptions(select, value) {
+    const opt = document.createElement("option");
+    opt.value = value;
+    opt.text = value;
+    select.add(opt, null);
+}
+
 function populateMonth() {
-    for (let i = 1; i <= 12; i++) {
-        const sel = document.getElementById("card-month");
-        const opt = document.createElement("option");
-        opt.value = i;
-        opt.text = i;
-        sel.add(opt, null);
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const select = document.getElementById("card-month");
+    const selectedYears = yearSelect.value;
+    let initLoop = 1;
+
+    clearOption(select, 'Month');
+
+    if (year === Number(selectedYears)) {
+        initLoop = Number(month) + 1;
     }
+
+    for (let i = initLoop; i <= 12; i++) {
+        createSelectOptions(select, i);
+    }
+}
+
+function clearOption(element, defaultOption) {
+    const opt = document.createElement("option");
+    opt.text = defaultOption;
+
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+    opt.hidden = true;
+    opt.defaultSelected = true;
+    element.add(opt, null);
 }
